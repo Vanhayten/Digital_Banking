@@ -1,4 +1,4 @@
-package org.digitalbanking;
+package org.digitalbanking.mapper;
 
 import org.digitalbanking.dto.*;
 import org.digitalbanking.entity.*;
