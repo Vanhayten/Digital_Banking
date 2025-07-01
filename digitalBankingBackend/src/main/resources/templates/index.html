@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Banking Backend</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .header {
+            background: linear-gradient(90deg, #4b6cb7, #182848);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .tech-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 5px 15px;
+            margin: 0 5px 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .btn {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 15px 25px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="header">
+        <h1 class="text-4xl font-bold mb-4">Digital Banking Backend</h1>
+        <p class="text-xl mb-6">Spring Boot 3.2.0 | Java 21 | JWT Security | H2 Database</p>
+        <div class="flex flex-wrap justify-center">
+            <span class="tech-badge"><i class="fab fa-java"></i> Java 21</span>
+            <span class="tech-badge"><i class="fas fa-leaf"></i> Spring Boot 3.2.0</span>
+            <span class="tech-badge"><i class="fas fa-shield-alt"></i> JWT Security</span>
+            <span class="tech-badge"><i class="fas fa-database"></i> H2 Database</span>
+            <span class="tech-badge"><i class="fas fa-file-alt"></i> OpenAPI 3</span>
+        </div>
+    </div>
+
+    <div class="p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-blue-50 p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800">Application Features</h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>JWT Authentication & Authorization</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Customer Management (CRUD Operations)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Bank Account Operations (Current & Savings)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Transaction History with Pagination</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Audit Logging (Created At/By)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>Comprehensive API Documentation</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-blue-800">Get Started</h2>
+                <p class="mb-6">
+                    Welcome to the Digital Banking Backend system. Use the quick links below to access
+                    different parts of the application or explore the API documentation.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a href="/README.html" class="btn bg-blue-600 text-white hover:bg-blue-700">
+                        <i class="fas fa-book"></i> Read Documentation
+                    </a>
+                    <a href="/swagger-ui/index.html" class="btn bg-green-600 text-white hover:bg-green-700">
+                        <i class="fas fa-file-code"></i> API Documentation
+                    </a>
+                    <a href="/h2-console" class="btn bg-purple-600 text-white hover:bg-purple-700">
+                        <i class="fas fa-database"></i> Database Console
+                    </a>
+                    <a href="/v3/api-docs" class="btn bg-yellow-600 text-white hover:bg-yellow-700">
+                        <i class="fas fa-code"></i> OpenAPI Spec
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mb-6 text-center text-blue-800">Explore the API</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="feature-card bg-white border border-gray-200">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Customer API</h3>
+                    <p class="text-gray-600 mb-4">
+                        Manage banking customers with full CRUD operations and search functionality.
+                    </p>
+                    <a href="/swagger-ui/index.html#/customer-rest-controller"
+                       class="text-blue-600 font-medium hover:underline">
+                        Explore Endpoints <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card bg-white border border-gray-200">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-wallet text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Account API</h3>
+                    <p class="text-gray-600 mb-4">
+                        Handle bank accounts, transactions, and account history.
+                    </p>
+                    <a href="/swagger-ui/index.html#/account-controller"
+                       class="text-blue-600 font-medium hover:underline">
+                        Explore Endpoints <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card bg-white border border-gray-200">
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-user-lock text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Auth API</h3>
+                    <p class="text-gray-600 mb-4">
+                        User authentication, registration, and password management.
+                    </p>
+                    <a href="/swagger-ui/index.html#/auth-controller"
+                       class="text-blue-600 font-medium hover:underline">
+                        Explore Endpoints <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray-50 py-6 px-8 text-center text-gray-600">
+        <p>Digital Banking Backend &copy; 2023 | Spring Boot 3.2.0 | Java 21</p>
+        <p class="mt-2">
+            <a href="https://github.com/your-username/digital-banking-backend"
+               class="text-blue-600 hover:underline">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
