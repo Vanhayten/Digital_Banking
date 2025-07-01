@@ -41,7 +41,7 @@ public class BankMapper {
 
         if (account instanceof CurrentAccount) {
             CurrentAccount current = (CurrentAccount) account;
-            return CurrentAccountDTO.builder()
+            return CurrentAccountDTO.currentAccountBuilder()
                     .id(dto.getId())
                     .balance(dto.getBalance())
                     .createdAt(dto.getCreatedAt())
@@ -53,7 +53,7 @@ public class BankMapper {
                     .build();
         } else if (account instanceof SavingAccount) {
             SavingAccount saving = (SavingAccount) account;
-            return SavingAccountDTO.builder()
+            return SavingAccountDTO.savingAccountBuilder()
                     .id(dto.getId())
                     .balance(dto.getBalance())
                     .createdAt(dto.getCreatedAt())

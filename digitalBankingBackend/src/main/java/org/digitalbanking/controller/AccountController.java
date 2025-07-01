@@ -51,18 +51,18 @@ public class AccountController {
     @PostMapping("/debit")
     public void debit(@RequestBody DebitRequest request)
             throws BankAccountNotFoundException, BalanceNotSufficientException {
-        bankService.debit(request.getAccountId(), request.getAmount(), request.getDescription());
+        bankService.debit(request.accountId(), request.amount(), request.description());
     }
 
     @PostMapping("/credit")
     public void credit(@RequestBody CreditRequest request) throws BankAccountNotFoundException {
-        bankService.credit(request.getAccountId(), request.getAmount(), request.getDescription());
+        bankService.credit(request.accountId(), request.amount(), request.description());
     }
 
     @PostMapping("/transfer")
     public void transfer(@RequestBody TransferRequest request)
             throws BankAccountNotFoundException, BalanceNotSufficientException {
-        bankService.transfer(request.getSourceAccount(), request.getDestAccount(), request.getAmount());
+        bankService.transfer(request.sourceAccount(), request.destAccount(), request.amount());
     }
 }
 
