@@ -102,13 +102,13 @@ Before you begin, ensure you have the following installed:
 
 2. **Build the project:**
    ```bash
-   mvn clean install
+   mvnd clean install
    ```
 
 ### ▶️ Running the Application
 
 ```bash
-mvn spring-boot:run
+mvnd spring-boot:run
 ```
 
 > 🌐 **The application will be available at:** http://localhost:8080
