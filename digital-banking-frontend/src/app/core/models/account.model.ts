@@ -1,71 +1,45 @@
-export enum AccountStatus {
-  CREATED = 'CREATED',
-  ACTIVATED = 'ACTIVATED',
-  SUSPENDED = 'SUSPENDED',
-  CLOSED = 'CLOSED'
+export interface Customer {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  address: string;
+  dateOfBirth: Date;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-export enum AccountType {
-  CURRENT = 'CURRENT',
-  SAVING = 'SAVING'
-}
-
-export enum OperationType {
-  DEBIT = 'DEBIT',
-  CREDIT = 'CREDIT'
+export interface Account {
+  id: number;
+  accountNumber: string;
+  accountType: 'CHECKING' | 'SAVINGS' | 'CREDIT';
+  balance: number;
+  currency: string;
+  isActive: boolean;
+  customer: Customer;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface BankAccount {
-  id: string;
-  balance: number;
-  createdAt: string;
-  status: AccountStatus;
-  accountType: AccountType;
-  customer: Customer;
-  createdBy: string;
-}
-
-export interface CurrentAccount extends BankAccount {
-  overDraft: number;
-}
-
-export interface SavingAccount extends BankAccount {
-  interestRate: number;
-}
-
-export interface AccountOperation {
   id: number;
-  operationDate: string;
-  amount: number;
-  type: OperationType;
-  description: string;
-  performedBy: string;
-  accountId: string;
-}
-
-export interface AccountHistory {
-  accountId: string;
+  accountNumber: string;
+  accountType: 'CHECKING' | 'SAVINGS' | 'CREDIT';
   balance: number;
-  currentPage: number;
-  totalPages: number;
-  pageSize: number;
-  operations: AccountOperation[];
+  currency: string;
+  isActive: boolean;
+  customerId: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-export interface TransferRequest {
-  sourceAccount: string;
-  destAccount: string;
-  amount: number;
-}
-
-export interface DebitRequest {
-  accountId: string;
+export interface Transaction {
+  id: number;
+  accountId: number;
+  type: 'DEPOSIT' | 'WITHDRAWAL' | 'TRANSFER';
   amount: number;
   description: string;
-}
-
-export interface CreditRequest {
-  accountId: string;
-  amount: number;
-  description: string;
+  timestamp: Date;
+  balance: number;
 }

@@ -42,6 +42,8 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/postcss'),
+    require('autoprefixer'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
   ],
