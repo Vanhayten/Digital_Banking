@@ -8,7 +8,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
-import { Customer } from '../../core/models/customer.model';
+import { Customer } from '../../core/models/account.model'; // Use unified model
 import { CustomerService } from '../../core/services/customer.service';
 
 @Component({
@@ -55,7 +55,7 @@ import { CustomerService } from '../../core/services/customer.service';
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef>Name</th>
                 <td mat-cell *matCellDef="let customer">
-                  {{ customer.firstName }} {{ customer.lastName }}
+                  {{ getCustomerName(customer) }}
                 </td>
               </ng-container>
 
@@ -68,15 +68,15 @@ import { CustomerService } from '../../core/services/customer.service';
               <!-- Phone Column -->
               <ng-container matColumnDef="phone">
                 <th mat-header-cell *matHeaderCellDef>Phone</th>
-                <td mat-cell *matCellDef="let customer">{{ customer.phone }}</td>
+                <td mat-cell *matCellDef="let customer">{{ getCustomerPhone(customer) }}</td>
               </ng-container>
 
               <!-- Status Column -->
               <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef>Status</th>
                 <td mat-cell *matCellDef="let customer">
-                  <mat-chip [color]="getStatusColor(customer.status)">
-                    {{ customer.status }}
+                  <mat-chip [color]="getStatusColor('active')">
+                    Active
                   </mat-chip>
                 </td>
               </ng-container>
@@ -186,6 +186,19 @@ export class CustomerListComponent implements OnInit {
         console.error('Error loading customers:', error);
       }
     });
+  }
+
+  // Helper method to get customer name (handles both model formats)
+  getCustomerName(customer: Customer): string {
+    if (customer.name) {
+      return customer.name;
+    }
+    return `${customer.firstName || ''} ${customer.lastName || ''}`.trim();
+  }
+
+  // Helper method to get customer phone (handles both model formats)
+  getCustomerPhone(customer: Customer): string {
+    return customer.phone || customer.phoneNumber || '';
   }
 
   getStatusColor(status: string): string {

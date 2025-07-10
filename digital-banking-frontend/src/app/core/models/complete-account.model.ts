@@ -8,9 +8,6 @@ export interface Customer {
   dateOfBirth: Date;
   createdAt: Date;
   updatedAt: Date;
-  // Legacy fields for compatibility
-  name?: string;
-  phone?: string;
 }
 
 export interface Account {
