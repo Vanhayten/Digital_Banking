@@ -5,7 +5,7 @@ import { authGuard } from './core/guards/auth.guard';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/auth/login',
     pathMatch: 'full',
   },
   {
@@ -16,29 +16,21 @@ export const routes: Routes = [
   // {
   //   path: 'dashboard',
   //   canActivate: [authGuard],
-  //   loadChildren: () =>
-  //     import('./features/dashboard/dashboard.routes').then(
-  //       (m) => m.dashboardRoutes
-  //     ),
-  // },
-  // {
-  //   path: 'customers',
-  //   canActivate: [authGuard],
-  //   loadChildren: () =>
-  //     import('./features/customers/customers.routes').then(
-  //       (m) => m.customersRoutes
-  //     ),
-  // },
-  // {
-  //   path: 'accounts',
-  //   canActivate: [authGuard],
-  //   loadChildren: () =>
-  //     import('./features/accounts/accounts.routes').then(
-  //       (m) => m.accountsRoutes
+  //   loadComponent: () =>
+  //     import('./features/dashboard/dashboard.component').then(
+  //       (m) => m.DashboardComponent
   //     ),
   // },
   {
+    path: 'customers',
+    canActivate: [authGuard],
+    loadChildren: () =>
+      import('./features/customers/customers.routes').then(
+        (m) => m.customersRoutes
+      ),
+  },
+  {
     path: '**',
-    redirectTo: '/dashboard',
+    redirectTo: '/auth/login',
   },
 ];
