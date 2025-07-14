@@ -100,11 +100,6 @@ export class AuthService {
     this.getCurrentUser().subscribe();
   }
 
-  // Method for auth interceptor
-  getToken(): string | null {
-    return localStorage.getItem('auth_token');
-  }
-
   getAuthToken(): string | null {
     return localStorage.getItem('auth_token');
   }
