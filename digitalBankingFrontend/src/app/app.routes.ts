@@ -1,4 +1,3 @@
-// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
 
@@ -27,6 +26,14 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/customers/customers.routes').then(
         (m) => m.customersRoutes
+      ),
+  },
+  {
+    path: 'accounts', // Add this new route
+    canActivate: [authGuard],
+    loadChildren: () =>
+      import('./features/accounts/accounts.routes').then(
+        (m) => m.accountsRoutes
       ),
   },
   {
