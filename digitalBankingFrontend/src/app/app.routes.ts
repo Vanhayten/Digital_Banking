@@ -13,14 +13,14 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/auth/auth.routes').then((m) => m.authRoutes),
   },
-  // {
-  //   path: 'dashboard',
-  //   canActivate: [authGuard],
-  //   loadComponent: () =>
-  //     import('./features/dashboard/dashboard.component').then(
-  //       (m) => m.DashboardComponent
-  //     ),
-  // },
+  {
+    path: 'dashboard',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent
+      ),
+  },
   {
     path: 'customers',
     canActivate: [authGuard],
