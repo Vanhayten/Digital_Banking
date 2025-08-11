@@ -8,13 +8,13 @@ export const accountsRoutes: Routes = [
         (m) => m.AccountListComponent
       ),
   },
-  // {
-  //   path: 'new',
-  //   loadComponent: () =>
-  //     import('./components/account-form/account-form.component').then(
-  //       (m) => m.AccountFormComponent
-  //     ),
-  // },
+  {
+    path: 'new',
+    loadComponent: () =>
+      import('./components/account-form/account-form.component').then(
+        (m) => m.AccountFormComponent
+      ),
+  },
   // {
   //   path: ':id',
   //   loadComponent: () =>

@@ -25,10 +25,9 @@ import { CustomerDTO } from '../../../../core/models/customer.model';
           <h1 class="text-3xl font-bold text-gray-900">Bank Accounts</h1>
           <p class="text-gray-600 mt-1">Manage customer bank accounts</p>
         </div>
-        <button
-          class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
-          (click)="createNewAccount()"
-        >
+        <button routerLink="/accounts/new"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg
+          flex items-center gap-2 transition-colors" >
           <svg
             class="w-5 h-5"
             fill="none"
